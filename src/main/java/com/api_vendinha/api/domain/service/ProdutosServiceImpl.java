@@ -9,6 +9,8 @@ import com.api_vendinha.api.domain.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 public class ProdutosServiceImpl implements ProdutosServiceInterface {
@@ -68,5 +70,10 @@ public class ProdutosServiceImpl implements ProdutosServiceInterface {
         produtosResponseDto.setPreco(produtosExist.getPreco());
 
         return  produtosResponseDto;
+    }
+
+    @Override
+    public List<Produtos> listar() {
+        return produtosRepository.findAll();
     }
 }

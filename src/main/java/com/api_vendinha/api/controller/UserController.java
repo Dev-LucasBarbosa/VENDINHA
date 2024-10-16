@@ -2,9 +2,12 @@ package com.api_vendinha.api.controller;
 
 import com.api_vendinha.api.domain.dtos.request.UserRequestDto;
 import com.api_vendinha.api.domain.dtos.response.UserResponseDto;
+import com.api_vendinha.api.domain.entities.User;
 import com.api_vendinha.api.domain.service.UserServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * Controlador REST para gerenciar operações relacionadas aos usuários.
@@ -55,5 +58,11 @@ public class UserController {
     public UserResponseDto status(@PathVariable Long id, @RequestBody UserRequestDto userRequestDto) {
         // Chama o serviço para salvar o usuário e retorna a resposta.
         return userService.status(id, userRequestDto);
+    }
+
+    @GetMapping("/usuario/listar") // Define que este método lida com requisições HTTP POST.
+    public List<User> listar() {
+        // Chama o serviço para salvar o usuário e retorna a resposta.
+        return userService.listar();
     }
 }

@@ -140,4 +140,9 @@ public class UserServiceImpl implements UserServiceInterface {
 
         return  userResponseDto;
     }
+
+    @Override
+    public List<User> listar() {
+        return userRepository.findAll();
+    }
 }
